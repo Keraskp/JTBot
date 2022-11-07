@@ -3,7 +3,7 @@ from mailer import Mailer
 
 app = Flask(__name__)
 
-@app.route('/index')
+@app.route('/')
 def index():
     return '<h1>What a Beautiful Day!</h1>'
 
@@ -18,12 +18,12 @@ def mail():
 def mail():
     data = request.get_json()
     data = data['queryResult']['parameters']
-    details = {'name':data['customer_name'], 'email':data['customer_email'], 'phone':data['customer_phone'], 'service_type':'Service '+str(data['number'])}
-    receiver = 'adityakiran.cs@gmail.com'
-    emailer = Mailer(receiver,details)
-    emailer.mail()
+    # details = {'name':data['customer_name'], 'email':data['customer_email'], 'phone':data['customer_phone'], 'service_type':'Service '+str(data['number'])}
+    # receiver = 'adityakiran.cs@gmail.com'
+    # emailer = Mailer(receiver,details)
+    # emailer.mail()
 
-    return jsonify({'My_Result': details})
+    return jsonify({'My_Result': data})
 
 
 @app.route('/author', methods=['GET'])
