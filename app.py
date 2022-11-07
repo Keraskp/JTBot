@@ -12,9 +12,8 @@ def mail():
     data = request.get_json()
     return jsonify({'result': data})
 
+
 @app.route('/try', methods=['GET'])
 def name():
     return 'Aditya Kiran Pal' 
 
-if __name__ == "__main__":
-    app.run(debug=True)
